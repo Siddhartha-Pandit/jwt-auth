@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Document from "react-pdf/dist/Document";
+import PDFViewer from './PDFViewer';
 const HomePage = () => {
   const [user, setUser] = useState(null);
   const[imageUrl,setImageUrl]=useState("")
@@ -51,11 +51,10 @@ const HomePage = () => {
         <div>
           {user.name ? <p>Name: {user.name}</p> : null}
           {user.email ? <p>Email: {user.email}</p> : null}
-          {/* {user.image ? <img src={imageUrl} alt="image not displayed" /> : null} */}
-          {user.document ?<Document src={docu} />:null}
-          
-          {/* {user.document ?<a href={docu}>Read pdf</a>:null}  */}
-          {/* Display other user data as needed */}
+          {user.image?<img src={imageUrl} alt="This image is not loaded"/>:null}
+         
+          {/* {docu ? <PDFViewer fileUrl={docu} /> : <p>Loading PDF data...</p>} */}
+         
         </div>
       ) : (
         <p>Loading user data...</p>
